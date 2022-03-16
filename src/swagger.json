@@ -1,0 +1,45 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Api de Arquivos Teste",
+    "description": "API para testar upload de arquivos",
+    "version": "1.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/upload-file/csv": {
+      "post": {
+        "tags": ["Upload Files"],
+        "summary": "Upload de arquivo",
+        "description": "Rota de teste para upload de arquivo",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fileName": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "File uploaded!"
+          },
+          "500": {
+            "description": "Internal server error!"
+          }
+        }
+      }
+    }
+  }
+}
